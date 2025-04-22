@@ -11,7 +11,7 @@ import (
 )
 
 type RequestEntRegister struct {
-    Name string `json:"name"` // Изменил enterprise_name → name
+    Name string `json:"name"` 
 }
 
 type RequestEventRegister struct {
@@ -28,10 +28,10 @@ type RequestUserRegister struct {
 type Server interface {
     EnterpriseRegister(name string) (int, error)
     EventRegister(name string, description string, enterpriseID int) (int, error)
-    ParticipantRegister(eventID int, name string) (int, error) // Переименовал UserRegister → ParticipantRegister
+    ParticipantRegister(eventID int, name string) (int, error) 
     GetEnterprises() ([]model.Enterprise, error)
     GetEvents() ([]model.Event, error)
-    GetParticipants() ([]model.Participant, error) // Переименовал GetUsers → GetParticipants
+    GetParticipants() ([]model.Participant, error) 
 }
 
 func respOk(w http.ResponseWriter, r *http.Request) {
